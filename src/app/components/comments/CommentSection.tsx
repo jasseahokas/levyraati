@@ -13,17 +13,17 @@ const CommentSection = async ({ albumId }: CommentSectionProps) => {
 	const commentResult = await supabase
 		.from('comments')
 		.select()
-		.eq('album_id', albumId);
+		.eq('album_id', albumId)
+		.order('created_at', { ascending: true });
 	const comments: Comment[] | null = commentResult.data;
 
 	return (
-		<div className="p-4 bg-neutral-100">
-			<h4>Kommentit</h4>
+		<>
 			<RealtimeCommentSection
 				serverComments={comments ?? []}
 				albumId={albumId}
 			/>
-		</div>
+		</>
 	);
 };
 

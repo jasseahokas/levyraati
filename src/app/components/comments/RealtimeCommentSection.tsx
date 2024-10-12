@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import type { Comment } from '@/src/types/supabase/comment';
 import { createClient } from '@/utils/supabase/client';
 import CommentList from './CommentList';
+import SendCommentBar from './SendCommentBar';
 
 interface RealtimeCommentSection {
 	serverComments: Comment[];
@@ -14,9 +15,10 @@ const RealtimeCommentSection = ({
 	serverComments,
 	albumId,
 }: RealtimeCommentSection) => {
+	const supabase = createClient();
 	const [comments, setComments] = useState<Comment[]>(serverComments);
+
 	useEffect(() => {
-		const supabase = createClient();
 		const channel = supabase
 			.channel('realtime_comments')
 			.on(
@@ -25,11 +27,13 @@ const RealtimeCommentSection = ({
 					event: 'INSERT',
 					schema: 'public',
 					table: 'comments',
-					filter: `album_id=eq${albumId}`,
 				},
 				(payload) => {
-					console.log('Change received!', payload);
-					setComments([...comments, payload.new as Comment]);
+					console.log('New comment received', payload);
+					if (payload.new.album_id === albumId) {
+						console.log('Adding new comment to list');
+						setComments([...comments, payload.new as Comment]);
+					}
 				},
 			)
 			.subscribe();
@@ -38,9 +42,11 @@ const RealtimeCommentSection = ({
 			supabase.removeChannel(channel);
 		};
 	}, [albumId, comments]);
+
 	return (
-		<div>
-			<CommentList comments={serverComments} />
+		<div className="bg-white h-[40rem] relative flex flex-col justify-between">
+			<CommentList comments={comments} />
+			<SendCommentBar albumId={albumId} setComments={setComments} />
 		</div>
 	);
 };
