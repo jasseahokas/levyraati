@@ -1,6 +1,7 @@
 import type { Album } from '@/src/types/supabase/album';
 import CommentSection from '../comments/CommentSection';
 import Image from 'next/image';
+import ScoreSection from '../points/ScoreSection';
 
 interface AlbumItemProps {
 	album: Album;
@@ -8,8 +9,8 @@ interface AlbumItemProps {
 
 const AlbumItem = ({ album }: AlbumItemProps) => {
 	return (
-		<div className="flex flex-col md:flex-row bg-white gap-4 w-full p-4">
-			<div className="flex flex-col border-b border-slate-300 pb-4 w-full">
+		<div className="flex flex-col md:flex-row gap-4 w-full p-4 bg-neutral-100 border border-neutral-200">
+			<div className="flex flex-col pb-4 w-full">
 				<Image
 					src={album.img_url}
 					alt={album.name}
@@ -23,7 +24,10 @@ const AlbumItem = ({ album }: AlbumItemProps) => {
 					<span>{album.year}</span>
 				</div>
 			</div>
-			<CommentSection albumId={album.id} />
+			<div className="w-full max-w-md flex flex-col gap-4">
+				<ScoreSection albumId={album.id} currentPoints={album.score} />
+				<CommentSection albumId={album.id} />
+			</div>
 		</div>
 	);
 };

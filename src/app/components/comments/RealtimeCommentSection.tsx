@@ -25,7 +25,7 @@ const RealtimeCommentSection = ({
 					event: 'INSERT',
 					schema: 'public',
 					table: 'comments',
-					filter: `album_id =eq${albumId}`,
+					filter: `album_id=eq${albumId}`,
 				},
 				(payload) => {
 					console.log('Change received!', payload);

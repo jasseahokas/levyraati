@@ -12,7 +12,7 @@ const AlbumList = async () => {
 
 	return (
 		<div className="w-full">
-			<ul>
+			<ul className="flex flex-col gap-8 p-4 md:p-12">
 				{albums?.map((album) => (
 					<li key={album.id}>
 						<AlbumItem album={album} />
