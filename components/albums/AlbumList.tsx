@@ -11,7 +11,7 @@ const AlbumList = async () => {
 	const albums: Album[] | null = albumResult.data;
 
 	return (
-		<div className="w-full bg-blue-200 max-w-2xl mx-auto">
+		<div className="w-full max-w-2xl mx-auto">
 			<ul>
 				{albums?.map((album) => (
 					<li key={album.id}>

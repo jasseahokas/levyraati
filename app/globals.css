@@ -5,6 +5,9 @@
 
 @layer base {
   body {
-    @apply bg-white text-black;
+    @apply bg-white text-slate-950;
+  }
+  p,span {
+    @apply text-slate-600;
   }
 }

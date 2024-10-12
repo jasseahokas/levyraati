@@ -7,7 +7,7 @@ interface CommentItemProps {
 
 const CommentItem = ({ comment }: CommentItemProps) => {
 	return (
-		<div className="flex flex-col p-4 gap-4 border border-red-500 w-full">
+		<div className="flex flex-col p-4 gap-4 border border w-full">
 			<p>{comment.content}</p>
 			<div className="flex w-full justify-between items-center">
 				<span>{comment.alias}</span>
