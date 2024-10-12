@@ -3,5 +3,5 @@ export interface Comment {
     content: string;
     alias: string;
     created_at: string;
-    albumId: number;
+    album_id: number;
 }

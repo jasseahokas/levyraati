@@ -1,0 +1,11 @@
+{
+	"eslint.format.enable": true,
+	"editor.tabSize": 4,
+	"javascript.preferences.quoteStyle": "single",
+	"typescript.preferences.quoteStyle": "single",
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	}
+}
