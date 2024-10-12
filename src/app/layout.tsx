@@ -46,7 +46,7 @@ export default function RootLayout({
 					<main className="min-h-screen relative flex flex-col w-full">
 						<div className="fixed top-0 left-0 z-10 w-full border-b border-neutral-400 bg-white">
 							<nav className="h-12 w-full flex items-center justify-between p-4">
-								<h1>Kukka digital</h1>
+								<span>Kukka digital</span>
 							</nav>
 						</div>
 						<div className="h-12" />

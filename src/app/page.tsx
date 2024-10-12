@@ -4,7 +4,7 @@ export default async function Index() {
 	return (
 		<>
 			<div className="w-full">
-				<h1>Ala-asteen levyraati</h1>
+				<h1></h1>
 				<AlbumList />
 			</div>
 		</>

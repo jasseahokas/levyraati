@@ -10,6 +10,9 @@
 	span {
 		@apply text-neutral-600;
 	}
+	h1 {
+		@apply font-semibold text-xl md:text-4xl;
+	}
 	h4 {
 		@apply font-semibold;
 	}
