@@ -1,4 +1,4 @@
-import AlbumList from '@/components/albums/AlbumList';
+import AlbumList from '@/src/app/components/albums/AlbumList';
 
 export default async function Index() {
 	return (

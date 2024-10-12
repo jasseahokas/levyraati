@@ -1,6 +1,6 @@
 import { createClient } from '@/utils/supabase/server';
-import type { Album, AlbumWithComments } from '@/types/supabase/album';
-import type { Comment } from '@/types/supabase/comment';
+import type { Album, AlbumWithComments } from '@/src/types/supabase/album';
+import type { Comment } from '@/src/types/supabase/comment';
 import AlbumItem from './AlbumItem';
 
 const AlbumList = async () => {

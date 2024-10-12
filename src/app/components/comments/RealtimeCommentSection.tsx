@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { Comment } from '@/types/supabase/comment';
+import type { Comment } from '@/src/types/supabase/comment';
 import { createClient } from '@/utils/supabase/client';
 import CommentList from './CommentList';
 

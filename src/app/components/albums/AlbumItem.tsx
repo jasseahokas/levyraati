@@ -1,4 +1,4 @@
-import type { Album } from '@/types/supabase/album';
+import type { Album } from '@/src/types/supabase/album';
 import CommentSection from '../comments/CommentSection';
 import Image from 'next/image';
 

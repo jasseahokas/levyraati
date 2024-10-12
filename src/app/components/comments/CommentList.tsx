@@ -1,4 +1,4 @@
-import type { Comment } from '@/types/supabase/comment';
+import type { Comment } from '@/src/types/supabase/comment';
 import CommentItem from './CommentItem';
 
 interface CommentListProps {

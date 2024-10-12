@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase/server';
-import type { Comment } from '@/types/supabase/comment';
+import type { Comment } from '@/src/types/supabase/comment';
 import RealtimeCommentSection from './RealtimeCommentSection';
 
 interface CommentSectionProps {
