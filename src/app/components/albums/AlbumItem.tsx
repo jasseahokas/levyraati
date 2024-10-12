@@ -8,7 +8,7 @@ interface AlbumItemProps {
 
 const AlbumItem = ({ album }: AlbumItemProps) => {
 	return (
-		<div className="flex flex-col bg-slate-100 gap-4 w-full p-4 border border-slate-300 rounded-xl">
+		<div className="flex flex-col bg-slate-50 gap-4 w-full p-4 border border-slate-300 rounded-xl">
 			<div className="flex flex-col md:flex-row border-b border-slate-300 pb-4">
 				<Image
 					src={album.img_url}

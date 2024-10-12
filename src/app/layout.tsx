@@ -2,6 +2,7 @@ import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import { GeistSans } from 'geist/font/sans';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
+import localfont from 'next/font/local';
 import './globals.css';
 
 const defaultUrl = process.env.VERCEL_URL
@@ -14,6 +15,16 @@ export const metadata = {
 	description: 'The fastest way to build apps with Next.js and Supabase',
 };
 
+const satoshi = localfont({
+	src: [
+		{
+			path: '../../public/fonts/Satoshi-Variable.ttf',
+		},
+	],
+
+	variable: '--font-satoshi',
+});
+
 export default function RootLayout({
 	children,
 }: {
@@ -25,7 +36,7 @@ export default function RootLayout({
 			className={GeistSans.className}
 			suppressHydrationWarning
 		>
-			<body className="w-full">
+			<body className={`${satoshi.className}`}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
