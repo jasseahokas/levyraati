@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server';
 import type { Album } from '@/src/types/supabase/album';
 import AlbumList from '../components/admin/AlbumList';
 import Link from 'next/link';
+import AddAlbumForm from '../components/admin/AddAlbumForm';
 
 const AdminPage = async () => {
 	const supabase = createClient();
@@ -36,7 +37,8 @@ const AdminPage = async () => {
 				<div className="w-full py-8">
 					<h1>Lol löysit admin-sivulle</h1>
 				</div>
-				<div className="">
+				<div className="flex flex-col gap-8">
+					<AddAlbumForm />
 					<AlbumList serverAlbums={albums ?? []} />
 				</div>
 			</div>

@@ -7,7 +7,7 @@ export interface Album {
 	year: number;
 	img_url: string;
 	score?: number;
-    spotify_share?: string;
+	spotify_share?: string;
 }
 
 export interface AlbumWithComments extends Album {

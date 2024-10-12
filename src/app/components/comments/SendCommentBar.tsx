@@ -26,7 +26,7 @@ const SendCommentBar = ({ albumId, setComments }: SendCommentBarProps) => {
 			console.error('Error adding comment:', error);
 		} else {
 			console.log('Comment added', data);
-            setComment('');
+			setComment('');
 		}
 	};
 

@@ -16,4 +16,11 @@
 	h4 {
 		@apply font-semibold;
 	}
+
+	input {
+		@apply border border-neutral-300 bg-white px-2 py-1 w-full;
+	}
+	label {
+		@apply text-sm;
+	}
 }

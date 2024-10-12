@@ -3,6 +3,7 @@
 import type { Album } from '@/src/types/supabase/album';
 import { createClient } from '@/utils/supabase/client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface AlbumListProps {
 	serverAlbums: Album[];
@@ -48,18 +49,29 @@ const AlbumList = ({ serverAlbums }: AlbumListProps) => {
 
 	return (
 		<div className="w-full">
-			<ul>
+			<h4>Albumit</h4>
+			<ul className="border-t border-neutral-300">
 				{albums.map((album) => (
 					<li
 						key={album.id}
 						className="flex justify-between items-center py-2 border-b border-neutral-200 text-sm"
 					>
-						<div className="flex flex-col">
-							<span className="font-semibold text-black text-lg">
-								{album.name}
-							</span>
-							<span>{album.artist}</span>
-							<span>{album.year}</span>
+						<div className="flex items-center gap-4">
+							<Image
+								src={album.img_url}
+								alt={album.name}
+								width={64}
+								height={64}
+								objectFit="cover"
+								className="size-16"
+							/>
+							<div className="flex flex-col">
+								<span className="font-semibold text-black text-lg">
+									{album.name}
+								</span>
+								<span>{album.artist}</span>
+								<span>{album.year}</span>
+							</div>
 						</div>
 						<button
 							onClick={() => onDeleteAlbum(album.id)}

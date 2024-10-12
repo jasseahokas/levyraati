@@ -41,7 +41,7 @@ const RealtimeCommentSection = ({
 		return () => {
 			supabase.removeChannel(channel);
 		};
-	}, [albumId, comments]);
+	}, [albumId, comments, supabase]);
 
 	return (
 		<div className="bg-white h-[40rem] relative flex flex-col justify-between">
