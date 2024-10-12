@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  body {
-    @apply bg-white text-slate-950;
-  }
-  p,span {
-    @apply text-slate-600;
-  }
+	body {
+		@apply bg-white text-neutral-950;
+	}
+	p,
+	span {
+		@apply text-neutral-600;
+	}
+	h4 {
+		@apply font-semibold;
+	}
 }

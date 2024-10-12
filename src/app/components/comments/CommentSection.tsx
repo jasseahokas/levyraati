@@ -17,7 +17,8 @@ const CommentSection = async ({ albumId }: CommentSectionProps) => {
 	const comments: Comment[] | null = commentResult.data;
 
 	return (
-		<div>
+		<div className="w-full max-w-md">
+			<h4>Kommentit</h4>
 			<RealtimeCommentSection
 				serverComments={comments ?? []}
 				albumId={albumId}
