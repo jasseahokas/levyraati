@@ -15,7 +15,7 @@ const AlbumItem = ({ album }: AlbumItemProps) => {
 		<div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full p-4 md:p-8 bg-neutral-100 border border-neutral-200">
 			<div className="flex flex-col pb-4 gap-4 w-full max-w-md">
 				<Image
-					src={album.img_url}
+					src={album.img_url ?? '/placeholder.svg'}
 					alt={album.name}
 					width={500}
 					height={500}
