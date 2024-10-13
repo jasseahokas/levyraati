@@ -44,6 +44,7 @@ const SendCommentBar = ({ albumId, setComments }: SendCommentBarProps) => {
 						className="w-full py-1 px-2 bg-white border border-neutral-400 focus:outline-orange-500"
 						value={alias}
 						onChange={(e) => setAlias(e.target.value)}
+						required
 					/>
 				</div>
 				<div>
@@ -56,6 +57,7 @@ const SendCommentBar = ({ albumId, setComments }: SendCommentBarProps) => {
 						className="w-full py-1 px-2 bg-white border border-neutral-400 focus:outline-orange-500"
 						value={comment}
 						onChange={(e) => setComment(e.target.value)}
+						required
 					/>
 				</div>
 				<button

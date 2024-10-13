@@ -29,7 +29,7 @@ const RealtimeCommentSection = ({
 					table: 'comments',
 				},
 				(payload) => {
-					console.log('New comment received', payload);
+					console.log('New comment received', albumId, payload);
 					if (payload.new.album_id === albumId) {
 						console.log('Adding new comment to list');
 						setComments([...comments, payload.new as Comment]);
