@@ -44,7 +44,7 @@ const RealtimeCommentSection = ({
 	}, [albumId, comments, supabase]);
 
 	return (
-		<div className="bg-white h-[40rem] relative flex flex-col justify-between">
+		<div className="bg-white h-[32rem] md:h-[40rem] relative flex flex-col justify-between">
 			<CommentList comments={comments} />
 			<SendCommentBar albumId={albumId} setComments={setComments} />
 		</div>

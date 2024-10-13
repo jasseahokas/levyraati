@@ -13,6 +13,9 @@
 	h1 {
 		@apply font-semibold text-xl md:text-4xl;
 	}
+	h2 {
+		@apply font-semibold text-lg md:text-3xl;
+	}
 	h4 {
 		@apply font-semibold;
 	}

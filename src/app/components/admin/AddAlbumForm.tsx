@@ -12,9 +12,11 @@ const AddAlbumForm = () => {
 	const [year, setYear] = useState('');
 	const [imageFile, setImageFile] = useState<File | null>(null);
 	const [spotifyShare, setSpotifyShare] = useState('');
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
+		setIsSubmitting(true);
 		let imagePath = '';
 		if (imageFile) {
 			const { data: imageData, error: imageError } =
@@ -53,7 +55,6 @@ const AddAlbumForm = () => {
 			]);
 		if (albumError) {
 			console.error('Error adding album:', albumError);
-			return;
 		} else {
 			console.log('Album added:', albumData);
 			setName('');
@@ -62,6 +63,7 @@ const AddAlbumForm = () => {
 			setImageFile(null);
 			setSpotifyShare('');
 		}
+		setIsSubmitting(false);
 	};
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +127,8 @@ const AddAlbumForm = () => {
 			</div>
 			<button
 				type="submit"
-				className="bg-black text-white self-end py-2 w-1/3 mt-2"
+				disabled={isSubmitting}
+				className={`bg-black text-white self-end py-2 w-1/3 mt-2 ${isSubmitting && 'opacity-50'}`}
 			>
 				Lisää albumi
 			</button>
