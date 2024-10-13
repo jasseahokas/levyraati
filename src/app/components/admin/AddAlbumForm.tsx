@@ -1,19 +1,7 @@
 'use client';
 
 import { createClient } from '@/utils/supabase/client';
-import { useEffect, useState } from 'react';
-import type { Album } from '@/src/types/supabase/album';
-
-/* 
-export interface Album {
-	id: number;
-	name: string;
-	artist: string;
-	year: number;
-	img_url: string;
-	score?: number;
-	spotify_share?: string;
-} */
+import { useState } from 'react';
 
 const AddAlbumForm = () => {
 	const supabase = createClient();
@@ -23,18 +11,17 @@ const AddAlbumForm = () => {
 	const [artist, setArtist] = useState('');
 	const [year, setYear] = useState('');
 	const [imageFile, setImageFile] = useState<File | null>(null);
-	const [imgUrl, setImgUrl] = useState('');
 	const [spotifyShare, setSpotifyShare] = useState('');
-	//const [score, setScore] = useState('');
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
+		let imagePath = '';
 		if (imageFile) {
 			const { data: imageData, error: imageError } =
 				await supabase.storage
 					.from('album_covers')
 					.upload(
-						`public/${encodeURIComponent(name)}.jpg`,
+						`images/${encodeURIComponent(imageFile.name.replaceAll(' ', '_'))}`,
 						imageFile,
 						{
 							cacheControl: '3600',
@@ -44,6 +31,9 @@ const AddAlbumForm = () => {
 
 			if (imageError) {
 				console.error('Error uploading image:', imageError);
+			} else {
+				console.log('Image uploaded:', imageData);
+				imagePath = imageData.fullPath;
 			}
 		}
 
@@ -54,15 +44,23 @@ const AddAlbumForm = () => {
 					name,
 					artist,
 					year: parseInt(year),
-					img_url: imgUrl,
+					img_url: imagePath
+						? `https://odtuzylskxoqszhphpfr.supabase.co/storage/v1/object/public/${imagePath}`
+						: null,
 					spotify_share: spotifyShare,
 					score: 0,
 				},
 			]);
 		if (albumError) {
 			console.error('Error adding album:', albumError);
+			return;
 		} else {
 			console.log('Album added:', albumData);
+			setName('');
+			setArtist('');
+			setYear('');
+			setImageFile(null);
+			setSpotifyShare('');
 		}
 	};
 

@@ -23,4 +23,7 @@
 	label {
 		@apply text-sm;
 	}
+	button {
+		@apply px-2 py-1;
+	}
 }

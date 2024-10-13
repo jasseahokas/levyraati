@@ -25,7 +25,7 @@ const AlbumList = ({ serverAlbums }: AlbumListProps) => {
 				},
 				(payload) => {
 					console.log('New album received', payload);
-					setAlbums([...albums, payload.new as Album]);
+					setAlbums([payload.new as Album, ...albums]);
 				},
 			)
 			.subscribe();
@@ -47,6 +47,7 @@ const AlbumList = ({ serverAlbums }: AlbumListProps) => {
 		}
 	};
 
+	console.log(albums);
 	return (
 		<div className="w-full">
 			<h4>Albumit</h4>
@@ -58,12 +59,15 @@ const AlbumList = ({ serverAlbums }: AlbumListProps) => {
 					>
 						<div className="flex items-center gap-4">
 							<Image
-								src={album.img_url}
+								src={
+									album.img_url
+										? album.img_url
+										: '/placeholder.svg'
+								}
 								alt={album.name}
 								width={64}
 								height={64}
-								objectFit="cover"
-								className="size-16"
+								className="size-16 object-cover"
 							/>
 							<div className="flex flex-col">
 								<span className="font-semibold text-black text-lg">

@@ -5,7 +5,7 @@ export interface Album {
 	name: string;
 	artist: string;
 	year: number;
-	img_url: string;
+	img_url?: string;
 	score?: number;
 	spotify_share?: string;
 }

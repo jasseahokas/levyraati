@@ -1,8 +1,9 @@
 import { createClient } from '@/utils/supabase/server';
 import type { Album } from '@/src/types/supabase/album';
-import AlbumList from '../components/admin/AlbumList';
+import AlbumList from '../../components/admin/AlbumList';
 import Link from 'next/link';
-import AddAlbumForm from '../components/admin/AddAlbumForm';
+import AddAlbumForm from '../../components/admin/AddAlbumForm';
+import { login, signup } from '../../actions/login';
 
 const AdminPage = async () => {
 	const supabase = createClient();
