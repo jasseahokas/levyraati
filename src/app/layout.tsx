@@ -1,8 +1,7 @@
-import { hasEnvVars } from '@/utils/supabase/check-env-vars';
-import { GeistSans } from 'geist/font/sans';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import localfont from 'next/font/local';
+import Image from 'next/image';
 import './globals.css';
 
 const defaultUrl = process.env.VERCEL_URL
@@ -11,8 +10,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
 	metadataBase: new URL(defaultUrl),
-	title: 'Next.js and Supabase Starter Kit',
-	description: 'The fastest way to build apps with Next.js and Supabase',
+	title: 'Ala-asteen levyraati',
+	description: 'Kukkamökillä 11.-13.10.2024',
 };
 
 const satoshi = localfont({
@@ -31,11 +30,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html
-			lang="fi"
-			className={GeistSans.className}
-			suppressHydrationWarning
-		>
+		<html lang="fi" suppressHydrationWarning>
 			<body className={`${satoshi.className}`}>
 				<ThemeProvider
 					attribute="class"
@@ -44,21 +39,25 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 					<main className="min-h-screen relative flex flex-col w-full">
-						<div className="fixed top-0 left-0 z-10 w-full border-b border-neutral-300 bg-white">
-							<nav className="h-12 w-full flex items-center justify-between p-4">
-								<span>Kukka digital</span>
+						<div className="fixed top-0 left-0 z-10 w-full border-b bg-neutral-900">
+							<nav className="h-14 w-full flex items-center justify-center">
+								<Image
+									src="/logo.svg"
+									alt="Kukkakoululainen"
+									width={165}
+									height={48}
+								/>
 							</nav>
 						</div>
-						<div className="h-12" />
+						<div className="h-14" />
 						<div className="flex flex-col md:flex-row size-full">
-							{/* <div className="relative w-60 flex-shrink-0">
-								<div className="fixed top-0 left-0 w-60 h-screen bg-cyan-500"></div>
-							</div> */}
 							<div className="w-full">{children}</div>
-							{/* <div className="w-96 bg-cyan-500 h-full"></div> */}
 						</div>
 
-						<footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16"></footer>
+						<footer className="w-full flex flex-col items-center justify-center border-t border-neutral-200 text-center text-sm gap-4 py-16">
+							<span>Kukkamökillä 11.-13.10.2024</span>
+							<a href="https://github.com/jasseahokas/levyraati">Github</a>
+						</footer>
 					</main>
 				</ThemeProvider>
 			</body>

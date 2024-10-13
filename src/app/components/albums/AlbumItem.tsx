@@ -8,8 +8,6 @@ interface AlbumItemProps {
 	album: Album;
 }
 
-//https://open.spotify.com/album/39u9enFU8VMMvb01W1xVIi?si=Ao4QQOlaSKeMSIVHK2PYlQ
-
 const AlbumItem = ({ album }: AlbumItemProps) => {
 	return (
 		<div className="flex flex-col md:flex-row gap-2 md:gap-8 w-full p-2 md:p-8 bg-neutral-100 border border-neutral-200">
