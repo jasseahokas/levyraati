@@ -10,7 +10,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
 	metadataBase: new URL(defaultUrl),
-	title: 'Ala-asteen levyraati',
+	title: 'Kukkakoululainen - levyraati',
 	description: 'Kukkamökillä 11.-13.10.2024',
 };
 
